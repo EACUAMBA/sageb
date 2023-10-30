@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "_LayoutStudent";
+}
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<div class="container p-4 rounded-5">
+
+    <div class="text-center">
+
+        <h1 class="display-4 ">Detalhes Da Conta</h1>
+
+    </div>
+
+    <form >
+
+        <input type="hidden"  />
+        <div class="mb-3">
+            <label for="nome" class="form-label">Titular</label>
+            <input type="text"  class="form-control"  disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="numeroDoEstudante" class="form-label ">Numero Do Estudante</label>
+            <input type="text"  class="form-control" disabled>
+        </div>
+
+        <div class="mb-3">
+            <label for="telefone" class="form-label ">Telefone</label>
+            <input type="email" class="form-control" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="endereco" class="form-label ">Endereco</label>
+            <input type="text" class="form-control" disabled>
+        </div>
+      
+        <div class="d-grid gap-2">
+            
+            <a class="btn btn-secondary " asp-controller="Student" asp-action="Index" role="button">Voltar</a>
+        </div>
+
+    </form>
+
+</div>

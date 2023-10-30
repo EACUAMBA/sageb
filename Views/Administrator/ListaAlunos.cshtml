@@ -3,19 +3,20 @@
 }
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1>Livros Disponiveis</h1>
-        <a role="button" class="btn btn-warning mx-2" asp-route-id="" asp-controller="Administrator" asp-action="AdcionarLivros">Adcionar Livro</a>
+        <h1>Lista dos Alunos</h1>
+        <a role="button" class="btn btn-warning mx-2" asp-route-id="" asp-controller="Administrator" asp-action="AdcionarAlunos">Adcionar Aluno</a>
     </div>
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Autor</th>
-                <th scope="col">Ano De Lancamento</th>
-                <th scope="col">Numero De Paginas</th>
-                <th scope="col">Quantidade Disponivel</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Codigo Do Aluno</th>
+                <th scope="col">Data De Nascimento</th>
+                <th scope="col">Morada</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email</th>
                 <th></th>
             </tr>
         </thead>
@@ -27,9 +28,11 @@
                 <td>mdo</td>
                 <td>mdo</td>
                 <td>mdo</td>
+                <td>mdo</td>
+                <td>mdo</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-danger mx-2" asp-route-id="" asp-controller="Administrator" asp-action="Remover">Remover</a>
+                        <a role="button" class="btn btn-danger mx-2" asp-route-id="" asp-controller="Administrator" asp-action="RemoverAluno">Remover</a>
                     </div>
                 </td>
             </tr>

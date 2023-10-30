@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "_LayoutStudent";
+
 }
 
 <div class="container">
@@ -12,9 +13,10 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Data do emprestimo</th>
+                <th scope="col">Data Da Entrega</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -23,12 +25,19 @@
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>mdo</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-warning mx-2" asp-route-id="" asp-controller="" asp-action="">Solicitar Entrega</a>
+                        </div>
+                </td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
                 <td>fat</td>
+
+              
             </tr>
             <tr>
                 <th scope="row">3</th>

@@ -8,5 +8,32 @@ namespace sageb.Controllers
         {
             return View();
         }
+        public IActionResult AdcionarLivros()
+        {
+            return View();
+        }
+        public IActionResult Remover()
+        {
+            return View();
+        }
+        public IActionResult ListaAlunos()
+        {
+            return View();
+        }
+        public IActionResult AdcionarAlunos()
+        {
+            return View();
+        }
+        public IActionResult RemoverAluno()
+        {
+            return View();
+        }
+        public IActionResult Devolucoes()
+        {
+            return View();
+        }
+
+
+
     }
 }

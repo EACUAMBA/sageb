@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_LayoutAdministrator";
+    ViewData["title"] = "Adcionar Alunos";
+}
+
+<div class="container p-4 rounded-4">
+
+    <div class="mb-5  text-center">
+        <h1>Adicionar Livro</h1>
+    </div>
+
+    <form class="row g-3">
+
+        <div class="col-md-6">
+            <label for="nome" class="form-label ">Nome: </label>
+            <input type="text" class="form-control" id="nome">
+
+
+
+        </div>
+
+        <div class="col-md-6">
+            <label for="codigo" class="form-label ">Codigo Do Aluno: </label>
+            <input type="text" class="form-control" id="codigo" disabled>
+
+
+
+        </div>
+        <div class="col-md-6">
+            <label for="dataNascimento" class="form-label ">Data De Nascimento: </label>
+            <input type="date" class="form-control" id="dataNascimento">
+
+
+
+        </div>
+        <div class="col-md-6">
+            <label for="morada" class="form-label ">Morada: </label>
+            <input type="text" class="form-control" id="morada">
+
+
+
+        </div>
+
+        <div class="col-md-6">
+            <label for="telefone" class="form-label ">Telefone: </label>
+            <input type="text" class="form-control" id="telefone">
+
+
+
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label ">Email: </label>
+            <input type="email" class="form-control" id="email">
+
+
+
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-success w-50">Adiciona</button>
+            <a class="btn btn-primary w-50" asp-controller="Administrator" asp-action="ListaAlunos" role="button">Voltar</a>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_LayoutAdministrator";
+    ViewData["title"] = "Excluir Alunos";
+}
+
+<div class="container p-4 rounded-4">
+
+    <div class="mb-5  text-center">
+        <h1>Excluir Alunos</h1>
+    </div>
+
+    <form>
+
+        <input type="hidden" />
+        <h2>Tem Certeza de que deseja excluir o Aluno ?</h2>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label ">Nome: </label>
+            <input type="text" class="form-control" id="nome" disabled>
+
+
+
+        </div>
+
+        <div class="mb-3">
+            <label for="codigo" class="form-label ">Codigo Do Aluno: </label>
+            <input type="text" class="form-control" id="autor" disabled>
+
+
+
+        </div>
+        <div class="d-flex gap-5 mt-5">
+            <button type="submit" class="btn btn-success w-50">Exluir</button>
+            <a class="btn btn-primary w-50" asp-controller="Administrator" asp-action="Index" role="button">Voltar</a>
+        </div>
+
+    </form>
+
+</div>
