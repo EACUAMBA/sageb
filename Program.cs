@@ -1,9 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using sageb.Data;
+using sageb.Repositorio;
+using sageb.Repositorio.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ConexaoDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
+});
+builder.Services.AddScoped<IControlerLivro, LivroRepositorio>();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
