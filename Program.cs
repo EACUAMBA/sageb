@@ -5,24 +5,13 @@ using sageb.Repositorio.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Configuring database SQLite
+var rootPathASString = builder.Environment.WebRootPath;
+var options = new DbContextOptionsBuilder<SqliteDbContext>().UseSqlite(connectionString: "Data source =" +rootPathASString + "/database.db").Options;
+builder.Services.AddSingleton(new SqliteDbContext(options));
+
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext<ConexaoDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
-});
-builder.Services.AddScoped<IControlerLivro, LivroRepositorio>();
 var app = builder.Build();
-
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

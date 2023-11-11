@@ -3,9 +3,9 @@ using sageb.Models;
 
 namespace sageb.Data
 {
-    public class ConexaoDbContext : DbContext
+    public class SqliteDbContext : DbContext
     {
-        public ConexaoDbContext(DbContextOptions<ConexaoDbContext> options) : base(options) { }
+        public SqliteDbContext(DbContextOptions<SqliteDbContext> options) : base(options) { }
 
         public DbSet<LivrosModel> Livros { get; set; }
         public DbSet<UsuarioModel> usuarios { get; set; }
