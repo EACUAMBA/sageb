@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sageb.Data;
 
@@ -10,9 +11,11 @@ using sageb.Data;
 namespace sageb.Migrations
 {
     [DbContext(typeof(SqliteDbContext))]
-    partial class SqliteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231112112237_CreatedTableBook")]
+    partial class CreatedTableBook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -131,7 +134,7 @@ namespace sageb.Migrations
                     b.Property<int?>("PageQuantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("PublishDate")
+                    b.Property<DateTime?>("PublishhDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Quantity")

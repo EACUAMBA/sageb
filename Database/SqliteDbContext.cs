@@ -8,5 +8,7 @@ namespace sageb.Data
     {
         public SqliteDbContext(DbContextOptions<SqliteDbContext> options) : base(options) { }
 
+        public DbSet<Book> Books { get; set; }
+
     }
 }

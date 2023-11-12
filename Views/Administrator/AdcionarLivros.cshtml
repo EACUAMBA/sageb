@@ -2,6 +2,7 @@
     Layout = "_LayoutAdministrator";
     ViewData["title"] = "Adcionar Livro";
 }
+@model sageb.Controllers.Administrator.BookModel
 
 <div class="container p-4 rounded-4">
 
@@ -9,48 +10,40 @@
         <h1>Adicionar Livro</h1>
     </div>
 
-    <form class="row g-3">
+    <form asp-controller="Administrator" asp-action="AdcionarLivro" class="row g-3">
 
         <div class="col-md-6">
-            <label for="titulo" class="form-label ">Titulo: </label>
-            <input type="text" class="form-control" id="Titulo" >
-
-
-
+            <label for="titulo" class="form-label">Titulo:</label>
+            <input type="text" asp-for="Title" class="form-control" id="Titulo">
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
-            <label for="autor" class="form-label ">Autor: </label>
-            <input type="text" class="form-control" id="autor" >
-
-
-
-        </div>
-        <div class="col-md-6">
-            <label for="quantidade" class="form-label ">Quantidade: </label>
-            <input type="text" class="form-control" id="Quantidade">
-
-
-
-        </div>
-        <div class="col-md-6">
-            <label for="numeroDePaginas" class="form-label ">Numero De Paginais: </label>
-            <input type="text" class="form-control" id="numeroDePaginas">
-
-
-
+            <label for="autor" class="form-label ">Autor:</label>
+            <input type="text" asp-for="Author" class="form-control" id="autor">
+            <span asp-validation-for="Author" class="text-danger"></span>
         </div>
 
         <div class="col-md-6">
-            <label for="DataDeLancamento" class="form-label ">Data De Lancamento </label>
-            <input type="date" class="form-control" id="DataDeLancamento">
+            <label for="quantidade" class="form-label ">Quantidade:</label>
+            <input type="text" asp-for="Quantity" class="form-control" id="Quantidade">
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
 
+        <div class="col-md-6">
+            <label for="numeroDePaginas" class="form-label ">Numero De Paginais:</label>
+            <input type="text" asp-for="PageQuantity" class="form-control" id="numeroDePaginas">
+            <span asp-validation-for="PageQuantity" class="text-danger"></span>
+        </div>
 
-
+        <div class="col-md-6">
+            <label for="DataDeLancamento" class="form-label ">Data De Lancamento:</label>
+            <input type="date" asp-for="PublishDate" class="form-control" id="DataDeLancamento">
+            <span asp-validation-for="PublishDate" class="text-danger"></span>
         </div>
 
         <div class="d-flex gap-5 mt-5">
-            <button type="submit" class="btn btn-success w-50">Adiciona</button>
+            <button type="submit" class="btn btn-success w-50">Adicionar</button>
             <a class="btn btn-primary w-50" asp-controller="Administrator" asp-action="Index" role="button">Voltar</a>
         </div>
 

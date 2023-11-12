@@ -1,6 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+    ViewData["Title"] = "Autenticação | SAGEB";
 }
+
 @model sageb.Controllers.AccessControl.LoginModel
 
 <!DOCTYPE html>
@@ -17,12 +19,12 @@
             <img src="~/img/bootstrap-logo.svg" class="mb-4" height="57" width="72" />
             <h1 class="h3 mb-3 fw-normal text-light">Please sign in</h1>
             <div class="form-floating mb-3">
-                <input type="email" asp-for="Email" class="form-control" id="floatingInput" placeholder="your-email@gmail.com" />
+                <input type="email" asp-for="Email" value="admin@ustm.com" class="form-control" id="floatingInput" placeholder="your-email@gmail.com" />
                 <label for="floatingInput">E-mail</label>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" asp-for="Password" class="form-control " id="floatingInput" placeholder="password" />
+                <input type="password" asp-for="Password" value="admin.sageb" class="form-control " id="floatingInput" placeholder="password" />
                 <label for="floatingInput">Password</label>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
