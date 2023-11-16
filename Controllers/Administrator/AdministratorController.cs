@@ -60,6 +60,7 @@ namespace sageb.Controllers.Administrator
                 .ForEach(x => _sqliteDbContext.Books.Remove(x));
 
             _sqliteDbContext.SaveChanges();
+
             return RedirectToAction(actionName: "Index", controllerName: "Administrator");
         }
         public IActionResult ListaAlunos()
