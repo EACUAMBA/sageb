@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sageb.Data;
 
@@ -10,9 +11,11 @@ using sageb.Data;
 namespace sageb.Migrations
 {
     [DbContext(typeof(SqliteDbContext))]
-    partial class SqliteDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231117203729_AddedCoverImageColumnInBooksTable")]
+    partial class AddedCoverImageColumnInBooksTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -127,9 +130,6 @@ namespace sageb.Migrations
 
                     b.Property<string>("Author")
                         .HasColumnType("TEXT");
-
-                    b.Property<byte[]>("CoverImage")
-                        .HasColumnType("BLOB");
 
                     b.Property<int?>("PageQuantity")
                         .HasColumnType("INTEGER");
