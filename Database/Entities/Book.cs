@@ -13,9 +13,8 @@ namespace sageb.Database.Entities
         public int? Quantity { get; set; }
         public int? PageQuantity { get; set; }
         public DateTime? PublishDate { get; set; }
-        
-        //public int? UserId { get; set; }
-        //public User? User { get; set; }
+
+        public List<BookOrder> BookOrders { get; set; } = new List<BookOrder>();
 
     }
 }

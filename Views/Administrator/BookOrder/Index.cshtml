@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "_LayoutAdministrator";
+    ViewData["title"] = "Gerir Livros";
+}
+@using sageb.Controllers.Administrator
+@using sageb.Controllers.Administrator.BookOrder
+@model sageb.Controllers.Administrator.BookOrder.IndexModel
+
+<div class="container p-4 rounded-4">
+
+    <div class="mb-5  text-center">
+        <h1 class="pageTitle">Encomendas</h1>
+    </div>
+    
+        <table class="table">
+            <thead class="header">
+            <tr class="headerItem">
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Utilizador</th>
+                            <th>Estado</th>
+                            <th>Data de Criação</th>
+                            <th>Data de Levantamento</th>
+                            <th>Data de Devulução</th>
+                            <th>Acções</th>
+                        </tr>
+            </thead>
+            
+            <tbody class="body">
+            @foreach (BookOrderModel bookOrderModel in Model.BookOrderModels)
+                        {
+                            <tr class="bodyItem">
+                                <td>@bookOrderModel.Id</td>
+                                <td>@bookOrderModel.Book!.Title</td>
+                                <td>@bookOrderModel.User!.UserName</td>
+                                <td>@bookOrderModel.State</td>
+                                <td>@bookOrderModel.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                <td>@bookOrderModel.GivenAt</td>
+                                <td>@bookOrderModel.ReturnedAt</td>
+                                <td>
+                                    <a href="" class="button buttonPrimary">Editar</a>
+                                    <a asp-controller="Book" asp-action="DeleteBookOrder" asp-route-id="@bookOrderModel.Id" class="button buttonDanger">Apagar</a>
+                                </td>
+                            </tr>
+                        }
+            </tbody>
+        </table>
+
+</div>

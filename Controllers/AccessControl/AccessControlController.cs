@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.IdentityModel.Tokens;
-using sageb.Data;
+using sageb.Database;
 using sageb.Database.Entities;
 using sageb.Database.Entities.Identity;
 

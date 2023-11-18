@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using sageb.Data;
+using sageb.Database;
 using sageb.Database.Entities;
 using sageb.Database.Entities.Identity;
 

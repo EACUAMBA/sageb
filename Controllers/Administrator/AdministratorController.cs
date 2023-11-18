@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using sageb.Data;
+using sageb.Database;
 using sageb.Database.Entities;
 
 namespace sageb.Controllers.Administrator

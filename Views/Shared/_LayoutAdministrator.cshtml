@@ -20,7 +20,7 @@
             <div>
                 @if (!Url.ActionContext.HttpContext.Request.GetDisplayUrl().EndsWith("Administrator"))
                 {
-                    <a asp-controller="Administrator" asp-action="Index">
+                    <a asp-controller="Administrator" asp-action="Index" style="cursor: pointer">
                         <span class="menuItem" style="display: flex; gap:  1rem; font-size: 1.2rem; outline: solid 1px black; cursor: pointer ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <title>arrow_back</title>
@@ -32,11 +32,13 @@
                         </span>
                     </a>
                 }
-                <span class="menuItem" style="text-transform: uppercase; font-size: 2rem; font-weight: bold;">Sageb</span>
+               <a asp-controller="Home" asp-action="Index" style="cursor: pointer">
+                               <span class="menuItem" style="text-transform: uppercase; font-size: 2rem; font-weight: bold;">Sageb</span>
+                           </a>
                 <a asp-controller="Book" asp-action="Index">
                     <li class="menuItem button">Gerir Livros</li>
                 </a>
-                <a href="">
+                <a asp-controller="BookOrder" asp-action="Index">
                     <li class="menuItem button">Gerir Encomendas</li>
                 </a>
                 <a href="">

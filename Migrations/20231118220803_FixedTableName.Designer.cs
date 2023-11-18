@@ -11,8 +11,8 @@ using sageb.Database;
 namespace sageb.Migrations
 {
     [DbContext(typeof(SqliteDbContext))]
-    [Migration("20231112113530_AlterColumnPublishhDateToPublishDate")]
-    partial class AlterColumnPublishhDateToPublishDate
+    [Migration("20231118220803_FixedTableName")]
+    partial class FixedTableName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,6 +131,9 @@ namespace sageb.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("TEXT");
 
+                    b.Property<byte[]>("CoverImage")
+                        .HasColumnType("BLOB");
+
                     b.Property<int?>("PageQuantity")
                         .HasColumnType("INTEGER");
 
@@ -148,7 +151,40 @@ namespace sageb.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("sageb.Database.Entities.Role", b =>
+            modelBuilder.Entity("sageb.Database.Entities.BookOrder", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("BookId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("GivenAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ReturnedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("State")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BookOrders");
+                });
+
+            modelBuilder.Entity("sageb.Database.Entities.Identity.Role", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -174,7 +210,7 @@ namespace sageb.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("sageb.Database.Entities.User", b =>
+            modelBuilder.Entity("sageb.Database.Entities.Identity.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -240,7 +276,7 @@ namespace sageb.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("sageb.Database.Entities.Role", null)
+                    b.HasOne("sageb.Database.Entities.Identity.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -249,7 +285,7 @@ namespace sageb.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("sageb.Database.Entities.User", null)
+                    b.HasOne("sageb.Database.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -258,7 +294,7 @@ namespace sageb.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("sageb.Database.Entities.User", null)
+                    b.HasOne("sageb.Database.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -267,13 +303,13 @@ namespace sageb.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("sageb.Database.Entities.Role", null)
+                    b.HasOne("sageb.Database.Entities.Identity.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("sageb.Database.Entities.User", null)
+                    b.HasOne("sageb.Database.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -282,11 +318,36 @@ namespace sageb.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("sageb.Database.Entities.User", null)
+                    b.HasOne("sageb.Database.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("sageb.Database.Entities.BookOrder", b =>
+                {
+                    b.HasOne("sageb.Database.Entities.Book", "Book")
+                        .WithMany("BookOrders")
+                        .HasForeignKey("BookId");
+
+                    b.HasOne("sageb.Database.Entities.Identity.User", "User")
+                        .WithMany("BookOrders")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("sageb.Database.Entities.Book", b =>
+                {
+                    b.Navigation("BookOrders");
+                });
+
+            modelBuilder.Entity("sageb.Database.Entities.Identity.User", b =>
+                {
+                    b.Navigation("BookOrders");
                 });
 #pragma warning restore 612, 618
         }

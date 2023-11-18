@@ -17,8 +17,22 @@
         </div>
 
 
-        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top:  2rem">
-            <a class="buttonDark" style=" align-self: center">Encomendar</a>
-        </div>
+                <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top:  2rem">
+        @if (!Model.Ordered)
+        {
+            @if (Model.CanOrder)
+            {
+                    <a asp-controller="Home" asp-action="Order" asp-route-bookId="@Model.Book.Id" class="buttonDark" style=" align-self: center">Encomendar</a>
+            }
+            else
+            {
+                <p>Você já pediu este livro, espere!</p>
+            }
+        }
+        else
+        {
+            <p>Encomenda criada, fique atento á tua lista de encomendas e ao seu e-mail!.</p>
+        }
+                </div>
     </div>
 </div>

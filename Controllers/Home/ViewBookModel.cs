@@ -2,6 +2,10 @@
 
 namespace sageb.Controllers.Home;
 
-public record ViewBookModel (Book Book)
+public class ViewBookModel
 {
+    public Book? Book { get; set; }
+    public bool Ordered { get; set; } = false;
+    public bool CanOrder { get; set; } = true;
+
 }
