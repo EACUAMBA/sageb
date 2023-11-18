@@ -1,0 +1,31 @@
+.Statistics{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.StatisticItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 2rem;
+    outline: 1px solid black;
+}
+
+.StatisticItemTitle{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.StatisticItemSeparator{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.StatisticItemValue{
+    font-size: 2rem;
+    font-weight: bold;
+}

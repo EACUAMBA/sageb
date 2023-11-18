@@ -1,98 +1,22 @@
 ﻿@{
-    Layout = null;
+    Layout = "_LayoutBase";
+    ViewData["Title"] = "Início";
 }
+@using sageb.Database.Entities
+@model sageb.Controllers.Home.IndexModel
 
-<!doctype html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Início | SAGEB</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
-    <style>
-    *{
-    font-family: 'Open Sans', sans-serif;
+<h1 class="pageTitle">Livros</h1>
+<div class="publications">
+    @foreach (Book book in Model.Books)
+    {
+        <a class="publication" asp-controller="Home" asp-action="ViewBook" asp-route-bookId="@book.Id">
+            <img src="https://picsum.photos/300/200" alt="Tema">
+            <div class="publicationFooter">
+                <h1 class="publicationTitle">@book.Title</h1>
+                <p class="publicationAuthors">@book.Author</p>
+                
+                <small class="publicationPublishDate">Publicado em @book.PublishDate!.Value.ToString("dd/MM/yyyy")</small>
+            </div>
+        </a>
     }
-   .container{
-    width: 95%;
-    margin: 0 auto;
-    /*background: antiquewhite;*/
-   }
-   
-   
-    header{
-    }
-    
-    ul{
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    }
-    
-    ul div{
-    display: flex;
-    }
-    
-    li{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 1.5rem;
-        
-        height: 3.5rem;
-        cursor: pointer;
-    }
-    
-    li:hover{
-    text-decoration: underline;
-   
-     outline: solid black 1px;
-     
-    }
-    
-    #goToAdminPage{
-        justify-content: end;
-        outline: solid black 1px;
-        cursor: pointer;
-    }
-    
-    #goToAdminPage:hover{
-        outline: none;
-        background: black;
-        color: white;
-    }
-    </style>
-</head>
-<body>
-<header class="container">
-    <ul>
-        <div>
-            <li style="text-transform: uppercase; font-size: 2rem; font-weight: bold;">Sageb</li>
-            <li >Minhas Encomendas</li>
-        </div>
-        <li id="goToAdminPage" >Ir para area de Administração</li>
-    </ul>
-</header>
-<main class="container">
-    <h1 style="text-align: center; padding: 1.5rem">Livros</h1>
-    
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center">
-        @for(int i =0; i <=100; i++)
-        {
-            <article style="background: #dee4e7; display: flex; flex-direction: column; overflow: hidden;">
-                <img src="https://picsum.photos/300/200" alt="Tema">
-                <div style="padding: 1rem">
-                    <h1>Ninguem Matou Suhura</h1>
-                    <p>Associação Moçambicana de Escritores</p>
-                </div>
-            </article>
-        }
-    </div>
-</main>
-</body>
-</html>
+</div>

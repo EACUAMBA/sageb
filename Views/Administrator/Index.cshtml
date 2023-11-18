@@ -1,46 +1,33 @@
 ﻿@{
     Layout = "_LayoutAdministrator";
+    ViewData["Title"] = "Administração";
 }
-
-@model List<sageb.Controllers.Administrator.BookModel>
-
+@model sageb.Controllers.Administrator.IndexModel
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1>Livros Disponiveis</h1>
-        <a role="button" class="btn btn-warning mx-2" asp-route-id="" asp-controller="Administrator" asp-action="AdcionarLivros">Adcionar Livro</a>
+    <div>
+        <h1 class="pageTitle">Área de Administração</h1>
     </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Autor</th>
-                <th scope="col">Data de Lançamento</th>
-                <th scope="col">Numero De Paginas</th>
-                <th scope="col">Quantidade Disponivel</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <th scope="row">@item.Id</th>
-                    <td>@item.Title</td>
-                    <td>@item.Author</td>
-                    <td>@item.PublishDate</td>
-                    <td>@item.PageQuantity</td>
-                    <td>@item.Quantity</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a role="button" class="btn btn-danger mx-2" asp-route-id="@item.Id" asp-controller="Administrator" asp-action="RemoverLivro">Remover</a>
-                        </div>
-                    </td>
-                </tr>
-            }
- 
-        </tbody>
-    </table>
+    <div class="Statistics">
+
+        <a class="StatisticItem">
+            <h2 class="StatisticItemTitle">Livros</h2>
+            <span class="StatisticItemSeparator">-</span>
+            <span class="StatisticItemValue">@Model.BooksCount</span>
+        </a>
+
+        <a class="StatisticItem">
+            <h2 class="StatisticItemTitle">Encomendas</h2>
+            <span class="StatisticItemSeparator">-</span>
+            <span class="StatisticItemValue">2056</span>
+        </a>
+
+        <a class="StatisticItem">
+            <h2 class="StatisticItemTitle">Estudantes</h2>
+            <span class="StatisticItemSeparator">-</span>
+            <span class="StatisticItemValue">2056</span>
+        </a>
+
+    </div>
 
 </div>

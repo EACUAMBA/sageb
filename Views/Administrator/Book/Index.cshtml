@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "_LayoutAdministrator";
+    ViewData["title"] = "Gerir Livros";
+}
+@using sageb.Controllers.Administrator
+@model List<sageb.Controllers.Administrator.BookModel>
+
+<div class="container p-4 rounded-4">
+
+    <div class="mb-5  text-center">
+        <h1 class="pageTitle">Livros</h1>
+    </div>
+    
+        <table class="table">
+            <thead class="header">
+            <tr class="headerItem">
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Nümero de Páginas</th>
+                            <th>Número de Unidades</th>
+                            <th>Data de Publicação</th>
+                            <th>Acções</th>
+                        </tr>
+            </thead>
+            
+            <tbody class="body">
+            @foreach (BookModel bookModel in Model)
+                        {
+                            <tr class="bodyItem">
+                                <td>@bookModel.Id</td>
+                                <td>@bookModel.Title</td>
+                                <td>@bookModel.Author</td>
+                                <td>@bookModel.PageQuantity</td>
+                                <td>@bookModel.Quantity</td>
+                                <td>@bookModel.PublishDate</td>
+                                <td>
+                                    <a href="" class="button buttonPrimary">Editar</a>
+                                    <a asp-controller="Book" asp-action="DeleteBook" asp-route-id="@bookModel.Id" class="button buttonDanger">Apagar</a>
+                                </td>
+                            </tr>
+                        }
+            </tbody>
+        </table>
+
+</div>

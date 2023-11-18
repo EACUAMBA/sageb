@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "_LayoutBase";
+    ViewData["Title"] = "Início";
+}
+@model sageb.Controllers.Home.ViewBookModel
+
+<div style="padding-top: 1rem; display: flex; justify-content: center; flex-direction: column">
+
+    <div style="background-image: url('https://picsum.photos/700/300'); background-repeat: no-repeat; background-position: center; background-size: cover; width: 100%; height: 300px; display: flex; justify-content: center; align-items: end; ">
+        <h1 class="pageTitle" style="padding: 1.5rem 2rem; background-color: white">@Model.Book.Title</h1>
+    </div>
+    <div>
+        <div class="publicationFooter" style=" display: flex; justify-content: center; align-items: center; flex-direction: column">
+            <p class="publicationAuthors">Autor: @Model.Book.Author</p>
+            <p class="publicationAuthors">Número de páginas: @Model.Book.PageQuantity</p>
+            <small class="publicationPublishDate">Publicado em @Model.Book.PublishDate!.Value.ToString("dd/MM/yyyy")</small>
+        </div>
+
+
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top:  2rem">
+            <a class="buttonDark" style=" align-self: center">Encomendar</a>
+        </div>
+    </div>
+</div>

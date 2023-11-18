@@ -1,0 +1,177 @@
+﻿/*RESETS*/
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a{
+    all: unset;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    /*background: antiquewhite;*/
+}
+
+
+.menuBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: #dee4e7;
+    height: 75px;
+    
+    display: flex;
+    align-items: center;
+    
+}
+
+.menuBar ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.menuBar ul div {
+    display: flex;
+}
+
+.menuBar .menuItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    height: 3.5rem;
+}
+
+#goToAdminPage {
+    justify-content: end;
+    outline: solid black 1px;
+    cursor: pointer;
+}
+
+#goToAdminPage:hover {
+    outline: none;
+    background: black;
+    color: white;
+}
+
+.pageTitle {
+    text-align: center;
+    padding: 1.5rem
+}
+
+.pageContent{
+    margin-top: 75px;
+}
+
+
+/*PUBLICATIONS*/
+.publications {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.publication {
+    background: #dee4e7;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.publication .publicationFooter {
+    padding: 1rem;
+}
+
+.publication:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.51);
+}
+
+/*PRESETS*/
+.button{
+    cursor: pointer;
+    padding: 12px 20px;
+    display: inline-block;
+}
+
+.button:hover {
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    outline: solid black 1px;
+}
+
+.buttonDanger{
+    cursor: pointer;
+    padding: 12px 20px;
+    display: inline-block;
+   
+    
+}
+
+.buttonDanger:hover {
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    outline: solid black 1px;
+    background: #ba3535;
+    color: white;
+}
+.buttonPrimary:hover {
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    outline: solid black 1px;
+    background: #085cbd;
+    color: white;
+}
+
+
+.buttonDark {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; 
+    border: none; 
+    outline: 1px solid black;
+    height: 55px; 
+    padding: 0 20px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+.buttonDark:hover {
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    outline: solid black 1px;
+    background: black;
+    color: white;
+}
+
+/**/
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th{
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+
+ td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+thead th {
+    padding: 12px;
+}

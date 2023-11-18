@@ -1,68 +1,59 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.AspNetCore.Http.Extensions
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - sageb</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link href="~/css/navbar-top-fixed.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/sageb.styles.css" asp-append-version="true" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - SAGEB</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css"/>
+    <link rel="stylesheet" href="~/css/administrator.css"/>
 </head>
-<body class="bg-transparent container">
+<body>
+<div>
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-            <div class="container-fluid col-sm-7 col-md-10">
-                <a class="navbar-brand" asp-controller="Administrator" asp-action="Index">SistemaDeGestaoDeBiblioteca</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" asp-controller="Administrator" asp-action="AdcionarAlunos">Adicionar Utilizador</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Administrator" asp-action="ListaAlunos">Lista De Alunos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Administrator" asp-action="Devolucoes">Devolucoes</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usuario
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                
-                                <li><a class="dropdown-item" asp-controller="Login" asp-action="Index">Sair</a></li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+    <header class="menuBar">
+        <ul class="container">
+            <div>
+                @if (!Url.ActionContext.HttpContext.Request.GetDisplayUrl().EndsWith("Administrator"))
+                {
+                    <a asp-controller="Administrator" asp-action="Index">
+                        <span class="menuItem" style="display: flex; gap:  1rem; font-size: 1.2rem; outline: solid 1px black; cursor: pointer ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <title>arrow_back</title>
+                                <g fill="none">
+                                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#212121"></path>
+                                </g>
+                            </svg>
+                            Voltar
+                        </span>
+                    </a>
+                }
+                <span class="menuItem" style="text-transform: uppercase; font-size: 2rem; font-weight: bold;">Sageb</span>
+                <a asp-controller="Book" asp-action="Index">
+                    <li class="menuItem button">Gerir Livros</li>
+                </a>
+                <a href="">
+                    <li class="menuItem button">Gerir Encomendas</li>
+                </a>
+                <a href="">
+                    <li class="menuItem button">Gerir Estudantes</li>
+                </a>
             </div>
-        </nav>
+            <a asp-controller="Administrator" asp-action="GoToDefaultArea">
+                <li class="menuItem button" id="goToAdminPage">Ir para área Normal</li>
+            </a>
 
+        </ul>
     </header>
-    <div class="container bg-light">
-       <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-      
-    </div>
 
- 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <main class="pageContent container">
+        @RenderBody()
+    </main>
+
+</div>
 </body>
 </html>

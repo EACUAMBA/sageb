@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_Layout";
+}
+<header class="menuBar">
+    <ul class="container">
+        <div>
+            <span class="menuItem" style="text-transform: uppercase; font-size: 2rem; font-weight: bold;">Sageb</span>
+            <li class="menuItem button">Minhas Encomendas</li>
+        </div>
+        <div>
+            @if (User.IsInRole("Administrator"))
+            {
+                <a asp-controller="Home" asp-action="GoToAdministrationArea">
+                    <li class="menuItem button" id="goToAdminPage">Ir para área de Administração</li>
+                </a>
+            }
+            <div style="width: 1rem"></div>
+            <a asp-controller="AccessControl" asp-action="LogOut">
+                <li class="menuItem buttonDanger" id="sair">Sair</li>
+            </a>
+        </div>
+
+
+    </ul>
+</header>
+
+<main class="pageContent container">
+    @RenderBody()
+</main>
